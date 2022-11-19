@@ -1,32 +1,74 @@
 Dataset being used for this project:
 https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata?select=tmdb_5000_movies.csv
 
-Dataset Overview:
+Dataset Overview :
 
-Credits Table:
--> movie_id
+Credits Table :
+-> movie_id :
+        - unique value assigned to uniquely identify a movie in the dataset
+-> title :
+        - 
+-> cast :
+        - actors in the movie
+-> crew :
+        - directors, producers, etc. of the movie
+
+Movies Table :
+-> budget :
+        - All costs relating to the development, production, and post-production of a movie
+        - Not a relevant criteria for recommendation
+-> genres :
+        - Categories where a particular movie can be placed based on the setting, characters, plot, mood, tone and theme of the movie
+-> homepage :
+        - A webpage dedicated to promotion of a movie
+        - Not relevant for recommendation but can be useful in frontend !!
+-> id :
+        - A unique value assigned to uniquely identify a movie
+-> keywords :
+        - Tags describing a movie or content of the movie
+-> original_language :
+        - A large portion of the data is for English movies so will not much affect the recommendation
+-> original_title :
+        - Name of the movie as released originally, could be in any language hence we can prefer title over this as all title are in English
+        - Not relevant for recommendation
+-> overview :
+        - Summary of movie
+-> popularity :
+        - Numeric score for popularity of the movie
+-> production_companies :
+        - Company which produced the movie
+        - Not relevant for recommendation
+-> production_countries
+        - Country in which the movie was produced
+        - Not relevant for recommendation
+-> release_date :
+        - Date when the movie was released
+-> revenue :
+        - Revenue of the movie is an indirect indicator of the popularity of the movie
+-> runtime :
+        - Runtime of the movie
+        - Not relevant for recommendation
+-> spoken_languages :
+        - Languages used in the movie
+-> status :
+        - Whether the movie has been released or not
+        - Not relevant for recommendation
+-> tagline :
+        - A catchphrase for the movie can be useful in frontend !!
+-> title :
+        - Name of the movie in English
+-> vote_average :
+        - Numerical rating average of the movie
+-> vote_count :
+        - Number of rating individuals
+
+
+
+Columns used for recommendation :
+-> genres
+-> id
+-> keywords
+-> overview
 -> title
 -> cast
 -> crew
-
-Movies Table:
--> budget
--> genres
--> homepage
--> id
--> keywords
--> original_language
--> original_title
--> overview
--> popularity
--> production_companies
--> production_countries
--> release_date
--> revenue
--> runtime
--> spoken_languages
--> status
--> tagline
--> title
--> vote_average
--> vote_count
