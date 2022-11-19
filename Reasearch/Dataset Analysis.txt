@@ -1,0 +1,32 @@
+Dataset being used for this project:
+https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata?select=tmdb_5000_movies.csv
+
+Dataset Overview:
+
+Credits Table:
+-> movie_id
+-> title
+-> cast
+-> crew
+
+Movies Table:
+-> budget
+-> genres
+-> homepage
+-> id
+-> keywords
+-> original_language
+-> original_title
+-> overview
+-> popularity
+-> production_companies
+-> production_countries
+-> release_date
+-> revenue
+-> runtime
+-> spoken_languages
+-> status
+-> tagline
+-> title
+-> vote_average
+-> vote_count
