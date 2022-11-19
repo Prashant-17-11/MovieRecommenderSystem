@@ -1,0 +1,4 @@
+Vectorization of the tags... text Vectorization
+Bag of words technique
+Stemming
+Cosine distance
