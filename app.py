@@ -3,14 +3,18 @@ import pickle
 import pandas as pd
 import requests
 
+s = requests.Session()
 
 def fetch_poster(movie_id):
     url = 'https://api.themoviedb.org/3/movie/{}?api_key=ff908b9511e6589713db6bf7d3093231&language=en-US'.format(
         movie_id)
-    data = requests.get(url)
+    data = s.get(url)
     data = data.json()
     poster_path = data['poster_path']
-    full_path = "https://image.tmdb.org/t/p/w500/" + poster_path
+    if poster_path is not None:
+        full_path = "https://image.tmdb.org/t/p/w500/" + poster_path
+    else:
+        full_path = None
     return full_path
 
 
@@ -35,7 +39,6 @@ def make_grid(cols, rows):
             grid[i] = st.columns(rows)
     return grid
 
-
 def show_recommendations(selected_movie):
     recommended_movie_names, recommended_movie_posters = recommend(selected_movie)
 
@@ -49,12 +52,22 @@ def show_recommendations(selected_movie):
 
         grid_index = int(i / 3)
         my_grid[grid_index][0].write(recommended_movie_name_c1)
-        my_grid[grid_index][0].image(recommended_movie_poster_c1)
-        my_grid[grid_index][1].write(recommended_movie_name_c2)
-        my_grid[grid_index][1].image(recommended_movie_poster_c2)
-        my_grid[grid_index][2].write(recommended_movie_name_c3)
-        my_grid[grid_index][2].image(recommended_movie_poster_c3)
+        try:
+            my_grid[grid_index][0].image(recommended_movie_poster_c1)
+        except:
+            my_grid[grid_index][0].write("Poster unavailable")
 
+        my_grid[grid_index][1].write(recommended_movie_name_c2)
+        try:
+            my_grid[grid_index][1].image(recommended_movie_poster_c2)
+        except:
+            my_grid[grid_index][0].write("Poster unavailable")
+
+        my_grid[grid_index][2].write(recommended_movie_name_c3)
+        try:
+            my_grid[grid_index][2].image(recommended_movie_poster_c3)
+        except:
+            my_grid[grid_index][0].write("Poster unavailable")
 
 movies_dict = pickle.load(open('movie_dict.pkl', 'rb'))
 movies = pd.DataFrame(movies_dict)
