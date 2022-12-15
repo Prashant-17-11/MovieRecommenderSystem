@@ -10,10 +10,10 @@ def fetch_poster(movie_id):
         movie_id)
     data = s.get(url)
     data = data.json()
-    poster_path = data['poster_path']
-    if poster_path is not None:
+    try:
+        poster_path = data['poster_path']
         full_path = "https://image.tmdb.org/t/p/w500/" + poster_path
-    else:
+    except:
         full_path = None
     return full_path
 
